@@ -186,7 +186,7 @@ $(document).ready(function () {
             title: "David and Emmas's Wedding",
 
             // Event start date
-            start: new Date('May 07, 2022 13:00'),
+            start: new Date('May 07, 2022 13:30'),
 
             // Event duration (IN MINUTES)
             // duration: 120,
@@ -199,7 +199,7 @@ $(document).ready(function () {
             address: 'Cardney Steading, Dunkeld, Perthshire',
 
             // Event Description
-            description: "We can't wait to see you on our big day. For any queries or issues, please contact David at 07875198370."
+            description: "We can't wait to see you on our big day. For any queries or issues, please contact us at info@emmadavid.wedding"
         }
     });
 
@@ -213,12 +213,8 @@ $(document).ready(function () {
 
         $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
 
-        if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
-            && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
-            $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
-        } else {
-            
-            $.post('https://script.google.com/macros/s/AKfycbxWC2TgEtR-PuL_nzDjBNzQc_TtqGqECmB2q3cYKwY7S641fluv-S6CsWQsvy8nFHmjfA/exec', data)
+     
+            $.post('https://script.google.com/macros/s/AKfycbzOokdiaW-MHAVcit-ZbyxEbMjqHT9QbvWqd_i1Z5ICbLKvD6GoeDsRVgWMn0l8gvJ8aQ/exec', data)
                 .done(function (data) {
                     console.log(data);
                     if (data.result === "error") {
@@ -232,7 +228,7 @@ $(document).ready(function () {
                     console.log(data);
                     $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
                 });
-        }
+        
     });
 
 });
